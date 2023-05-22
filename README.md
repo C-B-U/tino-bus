@@ -13,7 +13,7 @@
 위 표에 있는 데이터는 기본 데이터이다.<br>
 즉, 위 데이터를 기본 세팅 후에 진행한다. <br>
 상시 운행중인 시간은 5분 단위로 간격을 두고 추가한다. <br>
-
+예외 메시지는 자율적으로 작성한다. <br>
 <a style="color: red;font-size: xx-large"> 제발 여기다 push/merge 하지 마세요!! fork 한 후에 각자 닉네임으로 branch 파서 제작하고 PR 날려주세용 </a> <br>
 <a style="color: blue;font-size: xx-large"> 착한 우리 부원들은 문제 끝까지 읽고 풀기!!! 제발~ </a>
 
@@ -42,16 +42,6 @@
 
 - 시작지가 같으며, 기존에 운행하는 버스와 출발 시간이 5분 미만으로 차이가 나면 안 됨.
   ex) 기존에 10:30분 출발 버스가 있으면, 1:34분에 출발하는 버스는 추가할 수 없음
-
-### 버스 삭제
-
-##### Request : DELETE api/buses/{id}
-
-##### Response : 204 no content
-
-#### 예외 상황
-
-- 만약 id에 해당하는 버스 삭제시 예외처리 해야
 
 ### 버스 불러오기
 
@@ -131,13 +121,50 @@
 
 - 파라미터값이 정해진 형식이 아니라면 예외처리
 
+### 버스 수정
+##### Request : put api/buses/{id}
+```json
+{
+  "startPosition": "school",
+  "departureTime": "10:30"
+}
+```
+
+##### Response : 200 ok
+```json
+{
+  "id": 5,
+  "startPosition": "school",
+  "departureTime": "10:30"
+}
+```
+
+#### 예외상황
+- 만약 id에 해당하는 버스가 없을 시 예외처리 해야
+- 시작지가 같으며, 기존에 운행하는 버스와 출발 시간이 5분 미만으로 차이가 나면 안 됨.
+  ex) 기존에 10:30분 출발 버스가 있으면, 1:34분에 출발하는 버스는 추가할 수 없음
+
+
+
+### 버스 삭제
+
+##### Request : DELETE api/buses/{id}
+
+##### Response : 204 no content
+
+#### 예외 상황
+- 만약 id에 해당하는 버스가 없을 시 예외처리 해야
 
 ## 지원 환경
 - java 11 이상
 - gradle
+- spring-boot 2.7
 
 ## 기본 세팅 라이브러리 (필요시 추가 가능)
-
+- spring-boot-starter-data-jpa
+- spring-boot-starter-validation
+- lombok
+- h2
 
 ## 규칙
 
