@@ -7,6 +7,8 @@
 ## 요구사항
 
 ### 사전 진행
+<img width="653" alt="image" src="https://github.com/C-B-U/tino-bus/assets/55674648/f591c732-05f3-4e07-9884-b736d4ab778d">
+
 
 위 표에 있는 데이터는 기본 데이터이다.<br>
 즉, 위 데이터를 기본 세팅 후에 진행한다. <br>
